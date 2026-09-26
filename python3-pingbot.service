@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram Ping & Host Status Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Open Dev/python3-pingbot
+ExecStart=/usr/bin/uv run python3-pingbot
+Restart=always
+RestartSec=5s
+EnvironmentFile=-%h/Open Dev/python3-pingbot/.env
+
+[Install]
+WantedBy=default.target
